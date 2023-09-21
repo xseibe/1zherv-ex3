@@ -96,7 +96,8 @@ public class HealthUI : MonoBehaviour
         // Determine the current health level.
         var s = Settings.Instance;
         var total = max - min;
-        var currentPtg = Math.Clamp(current / total, 0.0f, 1.0f);
+        var fraction = current / total;
+        var currentPtg = Math.Clamp(float.IsNaN(fraction) ? 0 : fraction, 0.0f, 1.0f);
 
         // Fill the bar.
         mHealthBar.fillAmount = currentPtg;
