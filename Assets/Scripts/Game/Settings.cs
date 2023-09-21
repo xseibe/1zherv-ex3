@@ -19,7 +19,7 @@ public class Settings : MonoBehaviour
     /// Reference to the main game manager.
     /// </summary>
     public GameObject gameManager;
-    
+
     /// <summary>
     /// List of all available players.
     /// </summary>
@@ -103,6 +103,16 @@ public class Settings : MonoBehaviour
      * Add the Player Input Manager to the scene, handle the new player registration,
      * and enable joining of second player using the alternative input scheme.
      */
+
+    public void OnPlayerJoined(PlayerInput playerInput)
+    {
+        AddPlayer(playerInput.gameObject);
+    }
+
+    public void OnPlayerLeft(PlayerInput playerInput)
+    {
+        RemovePlayer(playerInput.gameObject);
+    }
 
     /// <summary>
     /// Called when the script instance is first loaded.
