@@ -207,7 +207,6 @@ public class Gun : MonoBehaviour
 
             for (float i = 0; i < shotgunBullets; i++)
             {
-                Debug.Log(bulletRotation);
                 SpawnBullet(director.position,
                     Quaternion.Euler(director.eulerAngles) * Quaternion.Euler(0f, 0f, bulletRotation)
                 ) ;
