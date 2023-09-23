@@ -37,10 +37,11 @@ public class Gun : MonoBehaviour
     /// Number of bullets in one shotgun spread.
     /// </summary>
     public int shotgunBullets = 6;
-    
+
     /// <summary>
     /// Shotgun spread angle in degrees.
     /// </summary>
+    [Range(0, 360)]
     public float shotgunSpread = 30.0f;
     
     /// <summary>
