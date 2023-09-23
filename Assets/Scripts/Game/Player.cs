@@ -209,7 +209,15 @@ public class Player : MonoBehaviour
     public void OnShotgunSpread(InputAction.CallbackContext ctx)
     { mShotgunSpreadInput = ctx.ReadValue<float>() / 120.0f; }
     public void OnToggleShotgun(InputAction.CallbackContext ctx)
-    { if (ctx.started && mGun != null) { mGun.GetComponent<Gun>().shotgun ^= true; } }
+    {
+        if (ctx.started && mGun != null) 
+        {
+            Gun gun = mGun.GetComponent<Gun>();
+
+            gun.shotgun ^= true;
+            gun.AdjustFireRate(gun.shotgun ? -gun.fireRate / 1.9f / 10 : gun.fireRate / 10);
+        } 
+    }
     public void OnToggleInvincible(InputAction.CallbackContext ctx)
     { if (ctx.started) { invincible ^= true; } }
 
